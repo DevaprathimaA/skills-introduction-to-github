@@ -44,5 +44,27 @@
   "debug": "2.6.8" // Remote Code Execution (RCE) via Regular Expression Denial of Service
 }
 
+{
+  "name": "vulnerable-app",
+  "version": "1.0.0",
+  "description": "A sample app with vulnerable dependencies",
+  "main": "index.js",
+  "dependencies": {
+    "lodash": "4.17.11",            // Known Prototype Pollution vulnerability (CVE-2019-10744)
+    "express": "4.16.0",            // Outdated version with path traversal risks
+    "debug": "2.6.8",               // Remote code execution (CVE-2017-16137)
+    "morgan": "1.7.0",              // Prototype pollution vulnerability
+    "jquery": "3.4.0",              // Cross-site Scripting (XSS) CVE-2020-11022
+    "serialize-javascript": "1.5.0" // RCE vulnerability (CVE-2019-16769)
+  },
+  "devDependencies": {
+    "gulp": "3.9.1"                 // Arbitrary code execution risk (CVE-2018-16471)
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "dev",
+  "license": "ISC"
+}
 
 
